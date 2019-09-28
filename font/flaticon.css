@@ -1,0 +1,71 @@
+@font-face {
+  font-family: "Flaticon";
+  src: url("./Flaticon.eot");
+  src: url("./Flaticon.eot?#iefix") format("embedded-opentype"),
+       url("./Flaticon.woff2") format("woff2"),
+       url("./Flaticon.woff") format("woff"),
+       url("./Flaticon.ttf") format("truetype"),
+       url("./Flaticon.svg#Flaticon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Flaticon";
+    src: url("./Flaticon.svg#Flaticon") format("svg");
+  }
+}
+
+.fimanager:before {
+      display: inline-block;
+  font-family: "Flaticon";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+    display: block;
+}
+
+.flaticon-axe:before { content: "\f100"; }
+.flaticon-bat:before { content: "\f101"; }
+.flaticon-moon:before { content: "\f102"; }
+.flaticon-crossbones:before { content: "\f103"; }
+.flaticon-broom:before { content: "\f104"; }
+.flaticon-candle:before { content: "\f105"; }
+.flaticon-candy:before { content: "\f106"; }
+.flaticon-candies:before { content: "\f107"; }
+.flaticon-candy:before { content: "\f108"; }
+.flaticon-cauldron:before { content: "\f109"; }
+.flaticon-cobweb:before { content: "\f10a"; }
+.flaticon-coffin:before { content: "\f10b"; }
+.flaticon-dracula:before { content: "\f10c"; }
+.flaticon-eyeball:before { content: "\f10d"; }
+.flaticon-ghost:before { content: "\f10e"; }
+.flaticon-cat:before { content: "\f10f"; }
+.flaticon-ghost:before { content: "\f110"; }
+.flaticon-ghost:before { content: "\f111"; }
+.flaticon-gravestone:before { content: "\f112"; }
+.flaticon-zombie:before { content: "\f113"; }
+.flaticon-zombie:before { content: "\f114"; }
+.flaticon-knife:before { content: "\f115"; }
+.flaticon-lantern:before { content: "\f116"; }
+.flaticon-monster:before { content: "\f117"; }
+.flaticon-mummy:before { content: "\f118"; }
+.flaticon-owl:before { content: "\f119"; }
+.flaticon-poison:before { content: "\f11a"; }
+.flaticon-pumpkin:before { content: "\f11b"; }
+.flaticon-scripture:before { content: "\f11c"; }
+.flaticon-scythe:before { content: "\f11d"; }
+.flaticon-skull:before { content: "\f11e"; }
+.flaticon-skull:before { content: "\f11f"; }
+.flaticon-tree:before { content: "\f120"; }
+.flaticon-trident:before { content: "\f121"; }
+.flaticon-voodoo-doll:before { content: "\f122"; }
+.flaticon-wand:before { content: "\f123"; }
