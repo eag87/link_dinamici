@@ -7,4 +7,4 @@
 
 Guarda la demo <a href="https://www.gioacchini.info/github/link_effect/" target="_blank">cliccando qui</a>
 
-<iframe src="https://www.gioacchini.info/github/link_effect/"></iframe>
+
