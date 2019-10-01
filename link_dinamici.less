@@ -1,0 +1,522 @@
+// Configurazioni delle variabili generali valide per ogni tipologia di bottone
+//definizione colori
+@nero: #333;
+@grigio: #ccc;
+@bianco:#fff;
+@rosso:#ff0000;
+//durata transizione
+@durata_transizione:0.5s;
+//durata animazione
+@durata_animazione:1.5s;
+//dimensioni del quadratino (altezza è uguale a quella del bottone) che contiene l'icona, e definizione del font-size dell'icona stessa
+@larghezza_quadratino:50px;
+@dimensione_font_icona:25px;
+//dimensioni del pulsante, padding e font-size
+@larghezza_pulsante_max:400px;
+@altezza_pulsante:50px;
+@dimensione_font_pulsante:15px;
+@padding_laterale:15px;
+//altezza riga utilizzata nelle transizioni delle righe
+@altezza_riga:5px;
+
+body{
+	padding: 30px;
+	
+	.transition_all{
+		-webkit-transition: all @durata_transizione;
+		-moz-transition: all @durata_transizione;
+		transition: all @durata_transizione;
+	}
+	
+	.cnt_link{
+		padding: 30px 0;
+		
+		a.link_button{
+			-webkit-transition: all @durata_transizione;
+			-moz-transition: all @durata_transizione;
+			transition: all @durata_transizione;
+			&:before,&:after{
+				-webkit-transition: all @durata_transizione;
+				-moz-transition: all @durata_transizione;
+				transition: all @durata_transizione;
+				position: absolute;
+			}
+			&:before{
+				line-height: @altezza_pulsante;
+				width: @larghezza_quadratino;
+				height: @altezza_pulsante;
+				background-color: rgba(0,0,0,0.2);
+				font-size: @dimensione_font_icona;
+				color: @bianco;
+				text-align: center;
+
+			}
+			//ogni pulsante ha un margine top e bottom di 25px per distanziarsi
+			margin: 25px auto;
+			display: block;
+			position: relative;
+			line-height: @altezza_pulsante;
+			width: 100%;
+			max-width: @larghezza_pulsante_max;
+			text-decoration: none;
+			background-color: @nero;
+			color: @grigio;
+			font-size: @dimensione_font_pulsante;
+			z-index: 1;
+			
+			&:after{
+				content: '';
+				z-index: -1;
+				background-color: @rosso;
+			}
+
+			&:hover,&:focus,&:active{
+				color: @bianco;
+
+				&:before{
+					color: @bianco;
+				}
+			}
+			//+++++++++++++++++++++++++++++++++++++++
+			//QUADRATINO CON ICONA
+			//posizionamento icona a sinistra
+			&.ico_pos_left{
+				text-align: left;
+				padding-left: @larghezza_quadratino + @padding_laterale;
+				padding-right: @padding_laterale;
+				&:before{
+					top: 0;
+					bottom: 0;
+					left: 0;
+				}
+			}
+			//posizionamento icona a destra
+			&.ico_pos_right{
+				text-align: right;
+				padding-right: @larghezza_quadratino + @padding_laterale;
+				padding-left: @padding_laterale;
+				&:before{
+					top: 0;
+					bottom: 0;
+					right: 0;
+				}
+			}
+			//Non visualizzo il quadratino con icona
+			&.ico_pos_no{
+				padding: 0 @padding_laterale;
+				&:before{
+					display:none;
+					visibility: hidden;
+				}
+			}
+			//+++++++++++++++++++++++++++++++++++++++
+			//EFFETTI DI TRANSIZIONE
+
+			//effetto riempimento da sinistra a destra
+			&.effect_leftToRight{
+				&:after{
+					-webkit-transition-property: width;
+					transition-property: width;
+					top: 0;
+					bottom: 0;
+					left: 0;
+					width: 0;
+				}
+				&:hover,&:focus,&:active{
+					&:after{
+							width: 100%;
+							}
+				}
+			}
+			//effetto riempimento da destra a sinistra
+			&.effect_rightToLeft{
+				&:after{
+					-webkit-transition-property: width;
+					transition-property: width;
+					top: 0;
+					bottom: 0;
+					right: 0;
+					width: 0;
+				}
+				&:hover,&:focus,&:active{
+					&:after{
+							width: 100%;
+							}
+				}
+			}
+			//effetto riempimento dal basso verso l'alto
+			&.effect_bottomToTop{
+				&:after{
+					-webkit-transition-property: height;
+					transition-property: height;
+					left:0;
+					right: 0;
+					bottom: 0;
+					height: 0;
+				}
+				&:hover,&:focus,&:active{
+					&:after{
+							height: 100%;
+							}
+				}
+			}
+			//effetto riempimento dal'alto verso il basso 
+			&.effect_topToBottom{
+				&:after{
+					-webkit-transition-property: height;
+					transition-property: height;
+					left:0;
+					right: 0;
+					top: 0;
+					height: 0;
+				}
+				&:hover,&:focus,&:active{
+					&:after{
+							height: 100%;
+							}
+				}
+			}
+			//effetto riempimento dall'angolo alto a sinistra verso il basso a destra
+			&.effect_topLeftToBottomRight{
+				&:after{
+					-webkit-transition-property: height, width;
+					transition-property: height, width;
+					left:0;
+					top: 0;
+					height: 0;
+					width: 0;
+				}
+				&:hover,&:focus,&:active{
+					&:after{
+							height: 100%;
+							width: 100%;
+							}
+				}
+			}
+			//effetto riempimento dall'angolo basso a destra verso l'angolo alto a sinistra
+			&.effect_bottomRightToTopLeft{
+				&:after{
+					-webkit-transition-property: height, width;
+					transition-property: height, width;
+					right:0;
+					bottom: 0;
+					height: 0;
+					width: 0;
+				}
+				&:hover,&:focus,&:active{
+					&:after{
+							height: 100%;
+							width: 100%;
+							}
+				}
+			}
+			//effetto riga bassa da sinistra a destra
+			&.effect_lowerRowLeftToRight{
+				&:after{
+					-webkit-transition-property: width;
+					transition-property: width;
+					left: 0;
+					bottom: 0;
+					height: @altezza_riga;
+					width: 0;
+				}
+				&:hover,&:focus,&:active{
+					&:after{
+							width: 100%;
+							}
+				}
+			}
+			//effetto cambia colore icona e riga
+			&.effect_lowerRowBgIcon{
+				&:after{
+					-webkit-transition-property: width;
+					transition-property: width;
+					left: 0;
+					bottom: 0;
+					height: @altezza_riga;
+					width: 0;
+				}
+				&:hover,&:focus,&:active{
+					&:before{
+						background-color: @rosso;
+					}
+					&:after{
+							width: 100%;
+							}
+				}
+			}
+			//effetto ruota icona colorata pienamente
+			&.effect_rotateIconFull{
+				&:before{
+					background: none;
+				}
+				&:after{
+					-webkit-transition-property: width;
+					transition-property: width;
+					bottom: 0;
+					height: 100%;
+					width: 0;
+				}
+				&.ico_pos_left:after{
+					left: 0;
+				}
+				&.ico_pos_right:after{
+					right: 0;
+				}
+				&.ico_pos_no:after{
+					display: none;
+				}
+				&:hover,&:focus,&:active{
+					&:before{
+						transform: rotate(360deg);
+						color: @nero;
+					}
+					&:after{
+							width: @larghezza_quadratino;
+						}
+				}
+			}
+			//effetto ruota icona riga colorata
+			&.effect_rotateIconRowHorizontal{
+				&:before{
+					background: none;
+				}
+				&:after{
+					-webkit-transition-property: width;
+					transition-property: width;
+					bottom: 0;
+					height: @altezza_riga;
+					width: 0;
+				}
+				&.ico_pos_left:after{
+					left: 0;
+				}
+				&.ico_pos_right:after{
+					right: 0;
+				}
+				&.ico_pos_no:after{
+					display: none;
+				}
+				&:hover,&:focus,&:active{
+					&:before{
+						transform: rotate(360deg);
+					}
+					&:after{
+							width: @larghezza_quadratino;
+						}
+				}
+			}
+			//effetto ruoto icona con bordi colorati
+			&.effect_rotateIconRowVertical{
+				&:before{
+					background: none;
+				}
+				&:after{
+					-webkit-transition-property: height;
+					transition-property: height;
+					top: 0;
+					height: 0;
+					width: @altezza_riga;
+				}
+				&.ico_pos_left:after{
+					left: @larghezza_quadratino;
+				}
+				&.ico_pos_right:after{
+					right: @larghezza_quadratino;
+				}
+				&.ico_pos_no:after{
+					display: none;
+				}
+				&:hover,&:focus,&:active{
+					&:before{
+						transform: rotate(360deg);
+					}
+					&:after{
+							height: @altezza_pulsante;
+						}
+				}
+			}
+			//EFFETTI DI ANIMAZIONE
+			//effetto riempimento da sinistra a destra con rimbalzo
+			&.effect_leftToRight_widthBounce{
+				&:after{
+				  -webkit-animation-duration: @durata_animazione;
+				  animation-duration: @durata_animazione;
+					//none - l'animazione non applica alcuno stile all'elemento prima del suo inizio e dopo la sua fine (default)
+					//forwards - al termine dell'animazione, l'elemento mantiene lo stile applicato dall'ultimo fotogramma
+					//backwards - prima che inizi l'animazione, l'elemento assume lo stile impostato nel primo fotogramma
+					//both - l'elemento si comporta come se fossero stati settati sia il valore "forwards" che "backwards"	
+				  -webkit-animation-fill-mode: forwards;
+				  animation-fill-mode: forwards;
+					//ease - l'animazione avrà un andamento abbastanza lento all'inizio, veloce nella fase mediana e lento alla fine (default)
+					//linear - l'animazione avrà un andamento costante dall'inizio alla fine
+					//ease-in - l'animazione avrà un inizio lento e poi un andamento veloce
+					//ease-out - l'animazione avrà un andamento veloce ed una fine lenta
+					//ease-in-out - l'animazione avrà un andamento veloce con un inizio ed una fine lenta
+					//cubic-bezier(n,n,n,n) - è possibile definire l'andamento indicando i valori della cosiddetta curca di bezier
+				  -webkit-animation-timing-function: ease-out;
+				  animation-timing-function: ease-out;
+
+					top: 0;
+					bottom: 0;
+					left: 0;
+					width: 0;
+				}
+				&:hover,&:focus,&:active{
+					&:after{
+							-webkit-animation-name: widthBounce;
+							animation-name: widthBounce;
+							}
+				}
+			}
+			//effetto riempimento da destra a sinistra con rimbalzo
+			&.effect_rightToLeft_widthBounce{
+				&:after{
+				  -webkit-animation-duration: @durata_animazione;
+				  animation-duration: @durata_animazione;
+				  -webkit-animation-fill-mode: forwards;
+				  animation-fill-mode: forwards;
+				  -webkit-animation-timing-function: ease-out;
+				  animation-timing-function: ease-out;
+
+					top: 0;
+					bottom: 0;
+					right: 0;
+					width: 0;
+				}
+				&:hover,&:focus,&:active{
+					&:after{
+							-webkit-animation-name: widthBounce;
+							animation-name: widthBounce;
+							}
+				}
+			}
+			//effetto riempimento da sinistra a destra con il bordo bottom da destra a sinistra
+			&.effect_rightToLeft_widthFullBorder{
+				&:after{
+				  -webkit-animation-duration: @durata_animazione;
+				  animation-duration: @durata_animazione;
+				  -webkit-animation-fill-mode: forwards;
+				  animation-fill-mode: forwards;
+				  -webkit-animation-timing-function: ease-out;
+				  animation-timing-function: ease-out;
+					
+					top: 0;
+					bottom: 0;
+					right: 0;
+					width: 0;
+					border-bottom: 3px solid transparent;
+				}
+				&:hover,&:focus,&:active{
+					&:after{
+							-webkit-animation-name: widthFullBorder;
+							animation-name: widthFullBorder;
+							}
+				}
+			}
+			//effetto riempimento da destra a sinistra con cambio colore
+			&.effect_rightToLeft_arcobaleno{
+				&:after{
+				  -webkit-animation-duration: @durata_animazione;
+				  animation-duration: @durata_animazione;
+				  -webkit-animation-fill-mode: forwards;
+				  animation-fill-mode: forwards;
+				  -webkit-animation-timing-function: ease-out;
+				  animation-timing-function: ease-out;
+
+					top: 0;
+					bottom: 0;
+					right: 0;
+					width: 0;
+				}
+				&:hover,&:focus,&:active{
+					&:after{
+							-webkit-animation-name: widthArcobaleno;
+							animation-name: widthArcobaleno;
+							}
+				}
+			}
+		}
+	}//cnt_link
+	#print_link_html{
+		padding: 30px 15px;
+		border: 3px solid @rosso;
+		cursor: pointer;
+		&:hover{
+			color: @bianco;
+			background-color: @nero;
+		}
+	}
+	#sel_icon{
+		input[type="radio"]{
+			display: none;
+		}
+		label{
+			span{
+				font-size: @dimensione_font_icona;
+				display: block;
+				padding: 5px;
+				&.sel{
+					background-color: @rosso;
+				}
+			}
+		}
+		img{
+			-webkit-transition: all @durata_transizione;
+			-moz-transition: all @durata_transizione;
+			transition: all @durata_transizione;
+			max-width: 35px;
+			padding: 5px;
+			&.sel{
+				background-color: @rosso;
+			}
+		}
+	}
+
+}
+//definizione di animazione custom con rimbalzo calcolato sull'intorno delle dimenioni del pulsante e spazio dell'icona
+@-webkit-keyframes  widthBounce{
+	0%{
+		width: 0%;
+	}
+	35%{
+		width: 100%;
+	}
+	50%{
+		width: @larghezza_pulsante_max - @larghezza_quadratino;
+	}
+	100%{
+		//invece di usare il 100% utilizzo la larghezza massima del bottone (compreso di padding) senza contare il quadratino, così da lasciarlo fuori dal after
+		width: @larghezza_pulsante_max;
+	}
+}
+//definizione di animazione custom con riempimento bottone da sx a dx e bordo bottom da dx a sx
+@-webkit-keyframes  widthFullBorder{
+	0%{
+		width: 0%;
+
+	}
+
+	100%{
+		width: 100%;
+		border-bottom-color: @nero;
+	}
+}	
+//definizione di animazione custom con riempimento bottone da sx a dx e bordo bottom da dx a sx
+@-webkit-keyframes  widthArcobaleno{
+	0%{
+		width: 0%;
+		background-color:peru;
+	}
+	33%{
+		background-color:blue;
+	}
+	66%{
+		background-color:yellowgreen;
+	}
+	100%{
+		width: 100%;
+		background-color:@rosso;
+	}
+}
+	

@@ -2,41 +2,158 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 <link href="font/flaticon.css" rel="stylesheet">
-<link href="pulsanti.css" rel="stylesheet">
-<title>Link con lo stile di pulsanti grafici</title>
+<link href="link_dinamici.css" rel="stylesheet">
+
+<title>link_dinamici</title>
 </head>
 <body>
-<h1>Link con stile ed effetti css3</h1>
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-12">
+			<h1>Link con stile ed effetti css3</h1>
 <p> Utilizzando banali <strong>tag &lt;a&gt;</strong> ovvero <strong>link è possibile dare uno stile grafico ed effetti a determinati eventi come hover, active, focus</strong>.. etc. </p>
 <p>In questo esercizio vi mostrerò come utilizzare pseudo componenti come after e before per rendere più belli i link e poi come animarli tramite la <strong>proprietà transition</strong> e tramite la <strong>proprietà animation</strong>. </p>
 <p>NB: le icone in tema Halloween utilizzate sono SVG convertiti in font presi per intero dal sito flaticon.com, assegnati ad ogni link tramite le classi fimanager e flaticon-nome_icona. </p>
 <p>Tutto è stato programmato tramite file <strong>.less</strong> che viene compilato per generare un file <strong>.css</strong>, pubblicherò entrambi i file ed all'interno del codice troverete i commenti con spiegazioni. </p>
-<h2>Effetto con proprità transition</h2>
-<a href="javascript:void();" class="fimanager flaticon-axe link_button ico_left effect_leftToRight">ico_left effect_leftToRight</a>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-12">
+			<h2>Costruisci il tuo bottone</h2>
+		</div>
+		<div class="col-sm-12 col-md-4">
+			<h4>Scegli l'icona</h4>
+			<form id="sel_icon">
 
-<a href="javascript:void();" class="fimanager flaticon-axe link_button ico_right effect_leftToRight">ico_right effect_leftToRight</a>
+				<div class="form-check form-check-inline">
+					<input type="radio" name="icon_selected" value="flaticon-axe" checked id="flaticon-axe">
+					<label for="flaticon-axe">
+						<span class="fimanager flaticon-axe transition_all"></span>
+					</label>
+				</div>
+				<div class="form-check form-check-inline">
+					<input type="radio" name="icon_selected" value="flaticon-bat" id="flaticon-bat">
+					<label for="flaticon-bat">
+						<span class="fimanager flaticon-bat transition_all"></span>
+					</label>
+				</div>
+				<div class="form-check form-check-inline">
+					<input type="radio" name="icon_selected" value="flaticon-moon" id="flaticon-moon">
+					<label for="flaticon-moon">
+						<span class="fimanager flaticon-axe transition_all"></span>
+					</label>
+				</div>
+				<div class="form-check form-check-inline">
+					<input type="radio" name="icon_selected" value="flaticon-crossbones" id="flaticon-crossbones">
+					<label for="flaticon-crossbones">
+						<span class="fimanager flaticon-crossbones transition_all"></span>
+					</label>
+				</div>
+				<div class="form-check form-check-inline">
+					<input type="radio" name="icon_selected" value="flaticon-broom" id="flaticon-broom">
+					<label for="flaticon-broom">
+						<span class="fimanager flaticon-broom transition_all"></span>
+					</label>
+				</div>
+				<div class="form-check form-check-inline">
+					<input type="radio" name="icon_selected" value="flaticon-candle" id="flaticon-candle">
+					<label for="flaticon-candle">
+						<span class="fimanager flaticon-candle transition_all"></span>
+					</label>
+				</div>
+				<div class="form-check form-check-inline">
+					<input type="radio" name="icon_selected" value="flaticon-cobweb" id="flaticon-cobweb">
+					<label for="flaticon-cobweb">
+						<span class="fimanager flaticon-cobweb transition_all sel"></span>
+					</label>
+				</div>
+				<div class="form-check form-check-inline">
+					<input type="radio" name="icon_selected" value="flaticon-candies" id="flaticon-candies">
+					<label for="flaticon-candies">
+						<span class="fimanager flaticon-candies transition_all"></span>
+					</label>
+				</div>
+				<div class="form-check form-check-inline">
+					<input type="radio" name="icon_selected" value="flaticon-candy" id="flaticon-candy">
+					<label for="flaticon-candy">	
+						<span class="fimanager flaticon-candy transition_all"></span>
+					</label>
+				</div>
+				<div class="form-check form-check-inline">
+					<input type="radio" name="icon_selected" value="flaticon-cauldron" id="flaticon-cauldron">
+					<label for="flaticon-cauldron">
+						<span class="fimanager flaticon-cauldron transition_all"></span>
+					</label>
+				</div>
+				<div class="form-check form-check-inline">
+					<input type="radio" name="icon_selected" value="flaticon-skull" id="flaticon-skull">
+					<label for="flaticon-skull">
+						<span class="fimanager flaticon-skull transition_all"></span>
+					</label>
+				</div>
 
-<a href="javascript:void();" class="fimanager flaticon-bat link_button ico_left effect_rightToLeft">ico_left effect_rightToLeft</a>
+			</form>
+		</div>
+		<div class="col-sm-12 col-md-4">
+			<h4>Posiziona l'icona</h4>
+			<select id="sel_pos_icon">
+				<option value="ico_pos_left" selected>Sinistra</option>
+				<option value="ico_pos_right">Destra</option>
+				<option value="ico_pos_no">No Icona</option>
+			</select>
+		</div>
+		<div class="col-sm-12 col-md-4">
+			<h4>Scegli l'animazione del pulsante</h4>
+			<select id="sel_effect">
+				<option value="effect_leftToRight">Da sinistra a destra</option>
+				<option value="effect_leftToRight">Da destra a sinistra</option>
+				<option value="effect_bottomToTop">Da sotto a sopra</option>
+				<option value="effect_topToBottom">Da sopra a sotto</option>
+				<option value="effect_topLeftToBottomRight">Da angolo alto a sinistra a sotto a destra</option>
+				<option value="effect_bottomRightToTopLeft">Da angolo basso a destra a alto a sinistra</option>
+				<option value="effect_leftToRight_widthBounce">Da sinistra a destra con rimbalzo [ICONA]</option>
+				<option value="effect_rightToLeft_widthBounce">Da destra a sinistra con rimbalzo [ICONA]</option>
+				<option value="effect_lowerRowLeftToRight">Riga bassa da sinistra a destra</option>
+				<option value="effect_lowerRowBgIcon">Riga bassa e cambia colore icona [ICONA]</option>
+				<option value="effect_rotateIconFull" selected>Ruota icona piena [ICONA]</option>
+				<option value="effect_rotateIconRowHorizontal">Ruota icona riga orizzontale [ICONA]</option>
+				<option value="effect_rotateIconRowVertical">Ruota icona riga verticale [ICONA]</option>
+				<option value="effect_rightToLeft_widthFullBorder">Da destra a sinistra con bordo bottom di altro colore</option>
+				<option value="effect_rightToLeft_arcobaleno" >Da destra a sinistra arcobaleno</option>
+				
+				
+			</select>
+		</div>
+		<div class="col-sm-12 cnt_link">
+			<div class="code_print">
+				<a href="https://github.com/eag87/link_dinamici" target="_blank"  id="costruisci_link" class="fimanager flaticon-cobweb ico_pos_left link_button effect_rotateIconFull" data-toggle="tooltip" title="Clicca per scaricare i file">Hover me</a>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-12">
+			<h4>Html del codice</h4>
 
-<a href="javascript:void();" class="fimanager flaticon-bat link_button ico_right effect_rightToLeft">ico_right effect_rightToLeft</a>
+				<div id="print_link_html" class="transition_all"  data-toggle="tooltip" title="Clicca per copiare html"></div>
+		
+		</div>
+		
+	</div>
 
-<a href="javascript:void();" class="fimanager flaticon-moon link_button ico_left effect_bottomToTop">ico_left effect_bottomToTop</a>
-
-<a href="javascript:void();" class="fimanager flaticon-moon link_button ico_right effect_topToBottom">ico_right effect_topToBottom</a>
-
-<a href="javascript:void();" class="fimanager flaticon-crossbones link_button ico_left effect_topLeftToBottomRight">ico_left effect_topLeftToBottomRight</a>
-
-<a href="javascript:void();" class="fimanager flaticon-crossbones link_button ico_right effect_bottomRightToTopLeft">ico_right effect_bottomRightToTopLeft</a>
-
-<h2>Effetto con proprità animation personalizzata</h2>
-
-<a href="javascript:void();" class="fimanager flaticon-skull link_button ico_left effect_rightToLeft_widthBounce">ico_left effect_leftToRight_widthBounce</a>
-
-<a href="javascript:void();" class="fimanager flaticon-skull link_button ico_right effect_leftToRight_widthBounce">ico_right effect_leftToRight_widthBounce</a>
+</div>
 
 
-
+<!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<!-- script custom -->
+<script src="link_dinamici.js"></script>
 </body>
 </html>
